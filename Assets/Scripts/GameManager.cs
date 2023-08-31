@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager: MonoBehaviour {
+    [SerializeField] private GameObject gameStartScreen;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Bird bird;
     [SerializeField] private Text scoreText;
@@ -12,6 +13,11 @@ public class GameManager: MonoBehaviour {
     public void AddScore() {
         score++;
         scoreText.text = score.ToString();
+    }
+
+    public void GameStart() {
+        Time.timeScale = 1f;
+        gameStartScreen.SetActive(false);
     }
 
     public void GameOver() {
